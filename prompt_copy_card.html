@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>合约观察说明提示词</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121933;
+      --panel-2: #1a2345;
+      --text: #eef2ff;
+      --muted: #aab4d6;
+      --accent: #7c9cff;
+      --accent-2: #4f7cff;
+      --ok: #27c281;
+      --border: #2a3564;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #0f1730 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      width: min(920px, 100%);
+      background: rgba(18, 25, 51, 0.96);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+    .header {
+      padding: 22px 24px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .title {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    .desc {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    .body {
+      padding: 20px 24px 24px;
+    }
+    textarea {
+      width: 100%;
+      min-height: 360px;
+      resize: vertical;
+      background: var(--panel-2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      font-size: 16px;
+      line-height: 1.8;
+      outline: none;
+    }
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(124, 156, 255, 0.15);
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    button {
+      appearance: none;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      cursor: pointer;
+    }
+    button:hover { filter: brightness(1.06); }
+    .status {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .status.ok { color: var(--ok); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h1 class="title">普通人也能看懂的合约观察说明</h1>
+      <p class="desc">这是一版可直接复制的测试提示词。你可以打开页面直接复制，拿去给小龙虾跑结果，再截图发内容。</p>
+    </div>
+    <div class="body">
+      <textarea id="prompt">请你帮我做一份普通人也能看懂的合约观察说明，要求：
+
+1. 先告诉我当前盘面更偏 多 / 空 / 观望
+2. 把“多空比、聪明钱、市场情绪”分别用人话解释
+3. 告诉我现在最值得重点关注的 2-3 个信息
+4. 告诉我哪些数据不用过度解读
+5. 最后用一句话总结：
+现在这个盘面更适合谨慎、观望，还是重点关注？</textarea>
+      <div class="actions">
+        <button id="copyBtn">一键复制</button>
+        <span id="status" class="status">点击按钮即可复制。</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const copyBtn = document.getElementById('copyBtn');
+    const promptEl = document.getElementById('prompt');
+    const statusEl = document.getElementById('status');
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(promptEl.value);
+        statusEl.textContent = '已复制，可以直接去测试。';
+        statusEl.className = 'status ok';
+      } catch (err) {
+        promptEl.select();
+        document.execCommand('copy');
+        statusEl.textContent = '已复制，可以直接去测试。';
+        statusEl.className = 'status ok';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+[
+  {
+    "ok": true,
+    "deliveryStatus": "mock_sent",
+    "deliveryChannel": "telegram",
+    "targetUserId": "telegram:6482140148",
+    "mockMessageId": "mock-telegram-82fef5b13d",
+    "sentAt": "2026-03-12T00:14:55Z",
+    "requestId": "delivery-test-001",
+    "traceId": "trace-delivery-test-001",
+    "payload": {
+      "channel": "telegram",
+      "targetUserId": "telegram:6482140148",
+      "message": "【新币速评推送】\n\n【新币速评】\n\n1. 一句话结论\n- BTC（BTCUSDT）当前更适合先观察结构和热度，不适合因为公告就直接追。\n\n2. 为什么会被关注\n- 因为 Binance 公告本身就会带来短期关注度，BTC 这类新上币事件天然容易吸引情绪流量。\n\n3. 当前市场参考\n- 当前价格：70222.9\n- 24h涨跌：+0.313%\n- 情绪结构：普通账户当前偏多。大户方向暂时没有明显单边。\n\n4. 主要风险\n- 当前价格波动还不算特别夸张。\n- 公告带来的关注，不等于现在就是舒服位置。\n- 如果没有明确计划，最容易从“想先看看”变成“情绪追单”。\n\n5. 普通人现在最该先看什么\n- 先看热度是不是已经过头\n- 再看结构是否支持继续追\n- 如果你已经想开仓，下一步更适合先做风控，而不是直接下单",
+      "buttons": [
+        [
+          {
+            "text": "查看风控",
+            "callback_data": "xinbi:go:risk",
+            "style": "primary"
+          },
+          {
+            "text": "忽略",
+            "callback_data": "xinbi:ignore",
+            "style": "danger"
+          }
+        ]
+      ],
+      "requestId": "delivery-test-001",
+      "traceId": "trace-delivery-test-001"
+    }
+  },
+  {
+    "ok": true,
+    "deliveryStatus": "mock_sent",
+    "deliveryChannel": "telegram",
+    "targetUserId": "telegram:test-user",
+    "mockMessageId": "mock-telegram-7905222274",
+    "sentAt": "2026-03-12T00:20:42Z",
+    "requestId": "query-test-001",
+    "traceId": "trace-query-test-001",
+    "payload": {
+      "channel": "telegram",
+      "targetUserId": "telegram:test-user",
+      "message": "hello",
+      "requestId": "query-test-001",
+      "traceId": "trace-query-test-001"
+    }
+  },
+  {
+    "ok": true,
+    "deliveryStatus": "mock_sent",
+    "deliveryChannel": "telegram",
+    "targetUserId": "telegram:test-user",
+    "mockMessageId": "mock-telegram-7c12ca8c1b",
+    "sentAt": "2026-03-12T00:25:05Z",
+    "requestId": "query-test-001",
+    "traceId": "trace-query-test-001",
+    "payload": {
+      "channel": "telegram",
+      "targetUserId": "telegram:test-user",
+      "message": "hello",
+      "requestId": "query-test-001",
+      "traceId": "trace-query-test-001"
+    }
+  }
+]
